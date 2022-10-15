@@ -1,7 +1,9 @@
 package main
 
 import (
-	log "github.com/Napigo/go-finance-service/pkg/logger"
+	fr "github.com/Napigo/go-finance-service/frameworks/rest"
+	it "github.com/Napigo/go-finance-service/interfaces"
+	"github.com/Napigo/go-finance-service/pkg/logger"
 	"github.com/joho/godotenv"
 )
 
@@ -9,17 +11,15 @@ import (
 func loadEnvironments() {
 	err := godotenv.Load()
 	if err != nil {
-		log.GetLogger().Fatal("Could not load .env files to system")
+		logger.Fatal("Could not load .env files to system")
 	}
+	logger.Info("Environment loaded...")
 }
-
-var logger = log.GetLogger()
 
 func main() {
 	loadEnvironments()
 
-	logger.Info("oiiii")
-	logger.Error("oiiii")
-	logger.Warn("Helppp")
-	logger.Debug("oiiii")
+	// Running the ffirst framework - HTTP Rest Server
+	var restServer it.Framework = fr.RestServer{}
+	restServer.Run()
 }
