@@ -6,6 +6,13 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+var PORT = ":80"
+
+func ListeningFunc() error {
+	logger.Infof("Rest server listening on port %s", PORT)
+	return nil
+}
+
 type RestServer struct{}
 
 func (rs RestServer) Run() {
@@ -13,8 +20,9 @@ func (rs RestServer) Run() {
 		ErrorHandler: DefaultErrorResponse,
 	})
 
+	CreateRestHook(app)
 	routes.EndpointRoutes(app)
 
-	app.Listen(":4000")
-	logger.Info("Rest server listening on port :4000")
+	app.Listen(PORT)
+	app.Hooks().OnListen(ListeningFunc)
 }
