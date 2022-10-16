@@ -19,8 +19,6 @@ func loadEnvironments() {
 func main() {
 	loadEnvironments()
 
-	logger.Info("Main test Hanafi Afifah")
-
 	// Running the ffirst framework - HTTP Rest Server
 	var restServer it.Framework = fr.RestServer{}
 	restServer.Run()
