@@ -1,4 +1,4 @@
-APP_NAME=go-finance-service
+APP_NAME=finance-service
 CURDIR=$(PWD)
 
 # for locally build only

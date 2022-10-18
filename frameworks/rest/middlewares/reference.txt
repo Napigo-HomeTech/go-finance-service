@@ -1,0 +1,30 @@
+// now := time.Now()
+// standardClaims := jwt.Claims{
+// 	Expiry:   now.Add(15 * time.Minute).Unix(),
+// 	IssuedAt: now.Unix(),
+// 	Issuer:   "NapigoApp",
+// 	Subject:  "Standard-A",
+// }
+
+// 	header := Header{
+// 		Kid: "NAPIGO-JWT-KEY",
+// 		Alg: jwt.HS256.Name(),
+// 	}
+
+// 	token, err := jwt.SignWithHeader(jwt.HS256, JWTSecret, standardClaims, header, jwt.MaxAge(60*time.Minute))
+// 	if err != nil {
+// 		logger.Error(err)
+// 	}
+
+// 	logger.Info(token)
+
+// 	verifiedToken, err := jwt.VerifyWithHeaderValidator(jwt.HS256, JWTSecret, token, func(alg string, headerDecoded []byte) (jwt.Alg, jwt.PublicKey, jwt.InjectFunc, error) {
+// 		return jwt.HS256, JWTSecret, nil, nil
+// 	})
+// 	if err != nil {
+// 		logger.Error(err)
+// 	}
+
+// 	a := verifiedToken.StandardClaims
+// 	logger.Info(a.Subject)
+// 	return "", nil

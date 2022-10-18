@@ -1,6 +1,7 @@
 package rest
 
 import (
+	"github.com/Napigo/go-finance-service/frameworks/rest/middlewares"
 	"github.com/Napigo/go-finance-service/frameworks/rest/routes"
 	"github.com/Napigo/go-finance-service/pkg/logger"
 	"github.com/gofiber/fiber/v2"
@@ -21,6 +22,8 @@ func (rs RestServer) Run() {
 	})
 
 	CreateRestHook(app)
+	middlewares.UserSessionMiddleware(app)
+
 	routes.EndpointRoutes(app)
 
 	app.Listen(PORT)
