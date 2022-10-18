@@ -3,7 +3,7 @@ module github.com/Napigo/go-finance-service
 go 1.19
 
 require (
-	github.com/Napigo/npgcommon v1.0.1
+	github.com/Napigo/npgcommon v1.0.4
 	github.com/Napigo/npglogger v1.0.1
 	github.com/gofiber/fiber/v2 v2.38.1
 )

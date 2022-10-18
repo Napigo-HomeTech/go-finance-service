@@ -7,14 +7,13 @@ import (
 
 func HealthCheckRoites(app *fiber.App) {
 	// all GET method for budgets endpoint
-	app.Get("/health-check", controllers.HealthCheckHandler)
+	app.Get("/health-check", controllers.HealthCheckController)
 }
 
 // All defined routes to be expose for finance-service
 func BudgetsRoutes(app *fiber.App) {
 	app.Get("/budgets/:id", controllers.GetAllBudgetsController)
-	app.Get("/budget/:budget_id", controllers.GetAllBudgetsController)
 
 	// all POST method for budgets endpoint
-	app.Post("/budgets", controllers.CreateBudgetHandler)
+	app.Post("/budgets", controllers.CreateBudgetController)
 }

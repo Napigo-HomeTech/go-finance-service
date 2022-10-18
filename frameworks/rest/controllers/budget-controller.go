@@ -2,23 +2,18 @@ package controllers
 
 import (
 	"github.com/Napigo/go-finance-service/internals/models"
+	commonauth "github.com/Napigo/npgcommon/auth"
 	"github.com/Napigo/npgcommon/rest"
 	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
 
 func GetAllBudgetsController(c *fiber.Ctx) error {
-	user_id := c.Params("id")
+	sub, ok := c.UserContext().Value(commonauth.UserSubKey).(string)
 
-	sub, ok := c.UserContext().Value(rest.UserSubKey).(string)
+	npglogger.Infof("User Subject from Token : %s", sub)
 
 	if !ok {
-		npglogger.Error("Failed to verify token and retrieved subject from claims")
-	} else {
-		npglogger.Infof("Subject: %v\n", sub)
-	}
-
-	if len(user_id) == 0 {
 		return fiber.NewError(fiber.StatusBadRequest, "User id Not found")
 	}
 
@@ -35,7 +30,7 @@ func GetAllBudgetsController(c *fiber.Ctx) error {
 	return resp.SendResponse()
 }
 
-func CreateBudgetHandler(c *fiber.Ctx) error {
+func CreateBudgetController(c *fiber.Ctx) error {
 	type ReqBodyCreateBudget struct {
 		BudgetId string `json:"budget_id"`
 		Name     string `json:"name"`

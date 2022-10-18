@@ -4,7 +4,8 @@ import (
 	"os"
 
 	"github.com/Napigo/go-finance-service/frameworks/rest/routes"
-	"github.com/Napigo/npgcommon/rest"
+	commonauth "github.com/Napigo/npgcommon/auth"
+	commonrest "github.com/Napigo/npgcommon/rest"
 	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
@@ -21,11 +22,11 @@ type RestServer struct{}
 func (rs RestServer) Run() {
 	port := os.Getenv("SERVICE_PORT")
 	app := fiber.New(fiber.Config{
-		ErrorHandler: rest.DefaultErrorResponse,
+		ErrorHandler: commonrest.DefaultErrorResponse,
 	})
 
-	rest.CreateRestHook(app)
-	rest.UserSubMiddleware(app)
+	commonrest.CreateRestHook(app)
+	commonauth.AuthVerify(app)
 
 	routes.BudgetsRoutes(app)
 	routes.BudgetsRoutes(app)
