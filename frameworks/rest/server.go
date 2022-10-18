@@ -1,22 +1,25 @@
 package rest
 
 import (
+	"os"
+
 	"github.com/Napigo/go-finance-service/frameworks/rest/routes"
 	"github.com/Napigo/npgcommon/rest"
 	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
 
-var PORT = ":80"
-
 func ListeningFunc() error {
-	npglogger.Infof("Rest server listening on port %s", PORT)
+	service_name := os.Getenv("SERVICE_NAME")
+	port := os.Getenv("SERVICE_PORT")
+	npglogger.Infof("Server %s listening on port %s", service_name, port)
 	return nil
 }
 
 type RestServer struct{}
 
 func (rs RestServer) Run() {
+	port := os.Getenv("SERVICE_PORT")
 	app := fiber.New(fiber.Config{
 		ErrorHandler: rest.DefaultErrorResponse,
 	})
@@ -27,6 +30,6 @@ func (rs RestServer) Run() {
 	routes.BudgetsRoutes(app)
 	routes.BudgetsRoutes(app)
 
-	app.Listen(PORT)
 	app.Hooks().OnListen(ListeningFunc)
+	app.Listen(port)
 }

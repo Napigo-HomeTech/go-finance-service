@@ -1,7 +1,7 @@
 github.com/Napigo/npgcommon v1.0.1 h1:SDlnQJCkfHOUJY7wzFtncdexXJwK86vd/4iDJxuSTzQ=
 github.com/Napigo/npgcommon v1.0.1/go.mod h1:OCXrkHucJFhzeNi5IBM+G0CwzZTgTULJJDGRCxWnexs=
-github.com/Napigo/npglogger v1.0.0 h1:u4oEPmskfAPmaI2nfIXQgS0FXDhxCCZjc0XcgeZc/iA=
-github.com/Napigo/npglogger v1.0.0/go.mod h1:YGsBoErcAbgmgugdHkBbiMwr77TNxibaqADi9GhionI=
+github.com/Napigo/npglogger v1.0.1 h1:pTlFpGCE+FxplhRJtV1X4e1xHgy3Q0pnxWWVyB3qSL8=
+github.com/Napigo/npglogger v1.0.1/go.mod h1:YGsBoErcAbgmgugdHkBbiMwr77TNxibaqADi9GhionI=
 github.com/andybalholm/brotli v1.0.4 h1:V7DdXeJtZscaqfNuAdSRuRFzuiKlHSC/Zh3zl9qY3JY=
 github.com/andybalholm/brotli v1.0.4/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHGRSepvi9Eig=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
