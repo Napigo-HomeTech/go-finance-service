@@ -1,8 +1,8 @@
 package rest
 
 import (
-	"github.com/Napigo/go-finance-service/frameworks/rest/middlewares"
 	"github.com/Napigo/go-finance-service/frameworks/rest/routes"
+	"github.com/Napigo/npgcommon/rest"
 	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
@@ -18,13 +18,14 @@ type RestServer struct{}
 
 func (rs RestServer) Run() {
 	app := fiber.New(fiber.Config{
-		ErrorHandler: DefaultErrorResponse,
+		ErrorHandler: rest.DefaultErrorResponse,
 	})
 
-	CreateRestHook(app)
-	middlewares.UserSessionMiddleware(app)
+	rest.CreateRestHook(app)
+	rest.UserSubMiddleware(app)
 
-	routes.EndpointRoutes(app)
+	routes.BudgetsRoutes(app)
+	routes.BudgetsRoutes(app)
 
 	app.Listen(PORT)
 	app.Hooks().OnListen(ListeningFunc)

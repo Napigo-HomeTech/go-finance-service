@@ -1,9 +1,8 @@
 package controllers
 
 import (
-	"github.com/Napigo/go-finance-service/frameworks/rest/middlewares"
-	"github.com/Napigo/go-finance-service/frameworks/rest/restutils"
 	"github.com/Napigo/go-finance-service/internals/models"
+	"github.com/Napigo/npgcommon/rest"
 	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
@@ -11,7 +10,7 @@ import (
 func GetAllBudgetsController(c *fiber.Ctx) error {
 	user_id := c.Params("id")
 
-	sub, ok := c.UserContext().Value(middlewares.UserSubKey).(string)
+	sub, ok := c.UserContext().Value(rest.UserSubKey).(string)
 
 	if !ok {
 		npglogger.Error("Failed to verify token and retrieved subject from claims")
@@ -32,7 +31,7 @@ func GetAllBudgetsController(c *fiber.Ctx) error {
 		dataList = append(dataList, *data)
 	}
 
-	resp := restutils.RestResponse{Context: c, Payload: dataList, HTTPStatus: 200, Status: "success"}
+	resp := rest.RestResponse{Context: c, Payload: dataList, HTTPStatus: 200, Status: "success"}
 	return resp.SendResponse()
 }
 
@@ -48,6 +47,6 @@ func CreateBudgetHandler(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest)
 	}
 
-	resp := restutils.RestResponse{Context: c, Payload: "Created", HTTPStatus: 200, Status: "Success"}
+	resp := rest.RestResponse{Context: c, Payload: "Created", HTTPStatus: 200, Status: "Success"}
 	return resp.SendResponse()
 }
