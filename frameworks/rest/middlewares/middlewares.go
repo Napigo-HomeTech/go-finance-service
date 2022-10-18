@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/Napigo/go-finance-service/pkg/logger"
+	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 	"github.com/kataras/jwt"
 )
@@ -41,7 +41,7 @@ func UserSessionMiddleware(app *fiber.App) {
 }
 
 func getSubFromToken(tokenString string) (string, error) {
-	logger.Info("getSubFromToken" + tokenString)
+	npglogger.Info("getSubFromToken" + tokenString)
 	byteToken := []byte(tokenString)
 
 	verifiedToken, err := jwt.VerifyWithHeaderValidator(jwt.HS256, JWTSecret, byteToken, func(alg string, headerDecoded []byte) (jwt.Alg, jwt.PublicKey, jwt.InjectFunc, error) {
@@ -52,8 +52,8 @@ func getSubFromToken(tokenString string) (string, error) {
 	}
 
 	sub := verifiedToken.StandardClaims.Subject
-	logger.Info(verifiedToken.StandardClaims.Subject)
-	logger.Info("Why not running here")
-	logger.Info(sub)
+	npglogger.Info(verifiedToken.StandardClaims.Subject)
+	npglogger.Info("Why not running here")
+	npglogger.Info(sub)
 	return sub, nil
 }

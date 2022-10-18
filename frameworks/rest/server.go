@@ -3,14 +3,14 @@ package rest
 import (
 	"github.com/Napigo/go-finance-service/frameworks/rest/middlewares"
 	"github.com/Napigo/go-finance-service/frameworks/rest/routes"
-	"github.com/Napigo/go-finance-service/pkg/logger"
+	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
 
 var PORT = ":80"
 
 func ListeningFunc() error {
-	logger.Infof("Rest server listening on port %s", PORT)
+	npglogger.Infof("Rest server listening on port %s", PORT)
 	return nil
 }
 

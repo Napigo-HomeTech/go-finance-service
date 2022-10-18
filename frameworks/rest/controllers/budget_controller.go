@@ -4,7 +4,7 @@ import (
 	"github.com/Napigo/go-finance-service/frameworks/rest/middlewares"
 	"github.com/Napigo/go-finance-service/frameworks/rest/restutils"
 	"github.com/Napigo/go-finance-service/internals/models"
-	"github.com/Napigo/go-finance-service/pkg/logger"
+	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -14,9 +14,9 @@ func GetAllBudgetsController(c *fiber.Ctx) error {
 	sub, ok := c.UserContext().Value(middlewares.UserSubKey).(string)
 
 	if !ok {
-		logger.Error("Failed to verify token and retrieved subject from claims")
+		npglogger.Error("Failed to verify token and retrieved subject from claims")
 	} else {
-		logger.Infof("Subject: %v\n", sub)
+		npglogger.Infof("Subject: %v\n", sub)
 	}
 
 	if len(user_id) == 0 {
