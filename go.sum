@@ -1,5 +1,5 @@
-github.com/Napigo/npgcommon v1.0.4 h1:sBOZwXpTKQxP7R+QLDQ+pO5yP4f17smM6S+KNUb0Yps=
-github.com/Napigo/npgcommon v1.0.4/go.mod h1:OCXrkHucJFhzeNi5IBM+G0CwzZTgTULJJDGRCxWnexs=
+github.com/Napigo/npgc v1.0.5 h1:UwOoO0Qgi+yXgsrAxRQ9oywWY6mUfT3cUeaV0Tbx4MU=
+github.com/Napigo/npgc v1.0.5/go.mod h1:xp0wyYM2mV1j9SXUJ+2MsWGD/dUZv8rnuMNZJrjk5SQ=
 github.com/Napigo/npglogger v1.0.1 h1:pTlFpGCE+FxplhRJtV1X4e1xHgy3Q0pnxWWVyB3qSL8=
 github.com/Napigo/npglogger v1.0.1/go.mod h1:YGsBoErcAbgmgugdHkBbiMwr77TNxibaqADi9GhionI=
 github.com/andybalholm/brotli v1.0.4 h1:V7DdXeJtZscaqfNuAdSRuRFzuiKlHSC/Zh3zl9qY3JY=
@@ -18,8 +18,9 @@ github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwA
 github.com/kataras/jwt v0.1.8 h1:u71baOsYD22HWeSOg32tCHbczPjdCk7V4MMeJqTtmGk=
 github.com/kataras/jwt v0.1.8/go.mod h1:Q5j2IkcIHnfwy+oNY3TVWuEBJNw0ADgCcXK9CaZwV4o=
 github.com/klauspost/compress v1.13.6/go.mod h1:/3/Vjq9QcHkK5uEr5lBEmyoZ1iFhe47etQ6QUkpK6sk=
-github.com/klauspost/compress v1.15.0 h1:xqfchp4whNFxn5A4XFyyYtitiWI8Hy5EW59jEwcyL6U=
 github.com/klauspost/compress v1.15.0/go.mod h1:/3/Vjq9QcHkK5uEr5lBEmyoZ1iFhe47etQ6QUkpK6sk=
+github.com/klauspost/compress v1.15.11 h1:Lcadnb3RKGin4FYM/orgq0qde+nc15E5Cbqg4B9Sx9c=
+github.com/klauspost/compress v1.15.11/go.mod h1:QPwzmACJjUTFsnSHH934V6woptycfrDDJnH7hvFVbGM=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=

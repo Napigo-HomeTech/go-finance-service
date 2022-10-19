@@ -2,14 +2,13 @@ package controllers
 
 import (
 	"github.com/Napigo/go-finance-service/internals/models"
-	commonauth "github.com/Napigo/npgcommon/auth"
-	"github.com/Napigo/npgcommon/rest"
+	"github.com/Napigo/npgc"
 	"github.com/Napigo/npglogger"
 	"github.com/gofiber/fiber/v2"
 )
 
 func GetAllBudgetsController(c *fiber.Ctx) error {
-	sub, ok := c.UserContext().Value(commonauth.UserSubKey).(string)
+	sub, ok := c.UserContext().Value(npgc.UserSubKey).(string)
 
 	npglogger.Infof("User Subject from Token : %s", sub)
 
@@ -26,7 +25,7 @@ func GetAllBudgetsController(c *fiber.Ctx) error {
 		dataList = append(dataList, *data)
 	}
 
-	resp := rest.RestResponse{Context: c, Payload: dataList, HTTPStatus: 200, Status: "success"}
+	resp := npgc.RestResponse{Context: c, Payload: dataList, HTTPStatus: 200, Status: "success"}
 	return resp.SendResponse()
 }
 
@@ -42,6 +41,6 @@ func CreateBudgetController(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest)
 	}
 
-	resp := rest.RestResponse{Context: c, Payload: "Created", HTTPStatus: 200, Status: "Success"}
+	resp := npgc.RestResponse{Context: c, Payload: "Created", HTTPStatus: 200, Status: "Success"}
 	return resp.SendResponse()
 }

@@ -5,6 +5,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/Napigo/npgc"
 	"github.com/Napigo/npglogger"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -17,8 +18,9 @@ type DS struct {
 var DataSource *DS
 
 func ConnectDB() {
-	URI := os.Getenv("MONGO_DATABASE_URI")
+	dbConfig := npgc.Config.DB
 
+	URI := dbConfig.URI
 	client, err := mongo.NewClient(options.Client().ApplyURI(URI))
 	if err != nil {
 		npglogger.Fatalf("Failed to create Mongo DB client with URI of %s", URI)
