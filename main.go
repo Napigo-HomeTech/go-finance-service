@@ -8,13 +8,9 @@ import (
 )
 
 func main() {
-	// Loads all .env variables before start
 	npgc.Load(".env")
-	// Establish connection to Database
 	db.ConnectDB()
 
-	// List of all servers need to initialzied and run
-	// such as Rest API, grpc, Websocket etc..
 	servers := []it.Framework{
 		rest.RestServer{},
 	}
