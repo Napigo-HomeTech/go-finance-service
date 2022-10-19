@@ -28,6 +28,7 @@ func (rs RestServer) Run() {
 	commonrest.CreateRestHook(app)
 	commonauth.AuthVerify(app)
 
+	routes.HealthCheckRoutes(app)
 	routes.BudgetsRoutes(app)
 	routes.BudgetsRoutes(app)
 

@@ -5,7 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func HealthCheckRoites(app *fiber.App) {
+func HealthCheckRoutes(app *fiber.App) {
 	// all GET method for budgets endpoint
 	app.Get("/health-check", controllers.HealthCheckController)
 }
